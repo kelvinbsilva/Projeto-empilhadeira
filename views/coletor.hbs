@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+
+    <title>Montiramento de empilhadeira</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+</head>
+
+<body>
+    <header class="cabecalho">
+        <img src="../img/logo.png" style="width: 170px; margin-left: 15px;" alt="">
+    </header>
+
+    <div class="container">
+        <div style="margin-left: 20px; margin-bottom: 15px;">
+            <h2> Inspeção de empilhadeira</h2>
+        </div>
+
+        <div class="boxC">
+            <form action="/auth/coletor" method="POST">
+                <div class="centro">
+                    <div style="padding-bottom: 10px;">
+                        <label for="empilhadeira">Empilhadeira:</label>
+                        <input id="empilhadeira" name="empilhadeira" required="required" type="text" placeholder="" />
+                    </div>
+                    <label for="turno">Turno</label>
+                    <select id="turno" name="turno" form="Turnoform">
+                        <option value="1">1°Turno</option>
+                        <option value="2">2°Turno</option>
+                        <option value="3">3°Turno</option>
+                    </select>
+                    <label for="setor">Setor</label>
+                    <select id="setor" name="setor" form="Turnoform">
+                        <option value="pin">pin</option>
+                        <option value="inf">inf</option>
+                        <option value="">..</option>
+                    </select>
+                    </br>
+
+                    </br>
+                    <label for="hora_i">Horimetro Inicial</label>
+                    <input type="number" id="hora_i" name="hora_i">
+                    </br>
+                    <label for="hora_f">Horimetro Final</label>
+                    <input type="number" id="hora_f" name="hora_f">
+
+                </div>
+                <div style="font-size: 13px; margin-top: 15px;">
+                    CHECK-LIST DE EMPILHADEIRA N°
+                </div>
+
+                
+                <div class="table">
+                    <table style="margin: 0 auto; width: 100%;">
+
+                        <tr style="background: rgb(0, 0, 0); color:white; border: 1px white; ">
+                            <th style="text-align: left; height: 35px;">Atividade</th>
+                            <th>OK</th>
+                            
+                        </tr>
+                        <tr>
+                            <td class="Descricao">Oleo motor</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="oleo_motor" name="oleo_motor" class="switch switch--shadow" type="checkbox" value="1" />
+                                    <label for="oleo_motor"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="cinza">
+                            <td class="Descricao">Agua do radiador</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="agua_radiador" name="agua_radiador" class="switch switch--shadow" type="checkbox" value="1" />
+                                    <label for="agua_radiador"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="Descricao">Freios</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="freios" name="freios" class="switch switch--shadow" type="checkbox" value="1" />
+                                    <label for="freios"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="cinza">
+                            <td class="Descricao">Embreagem</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="embreagem" name="embragem" class="switch switch--shadow" type="checkbox"  value="1"/>
+                                    <label for="embreagem"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="Descricao">Coletor</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="coletor" name="coletor" class="switch switch--shadow" type="checkbox" value="1" />
+                                    <label for="coletor"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="cinza">
+                            <td class="Descricao">Pneus</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="pneus" name="pneus" class="switch switch--shadow" type="checkbox" value="1" />
+                                    <label for="pneus"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="Descricao">Nivel óleo hidraulico</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="nivel_oleo" name="nivel_oleo" class="switch switch--shadow" type="checkbox" value="1" />
+                                    <label for="nivel_oleo"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="cinza">
+                            <td class="Descricao">Extintor</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="extintor" name="extintor" class="switch switch--shadow" type="checkbox" value="1" />
+                                    <label for="extintor"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="Descricao">Sistema Iluminação</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="sistema_ilum" name="sistema_ilum" class="switch switch--shadow" type="checkbox" value="1" />
+                                    <label for="sistema_ilum"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="cinza">
+                            <td class="Descricao">Garfo</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="garfo" name="garfo" class="switch switch--shadow" type="checkbox" value="1" />
+                                    <label for="garfo"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="Descricao">Torre</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="torre" name="torre" class="switch switch--shadow" type="checkbox"  value="1"/>
+                                    <label for="torre"></label>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        <tr class="cinza">
+                            <td class="Descricao">Botijão</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="botijao" name="botijao" class="switch switch--shadow" type="checkbox" value="1" />
+                                    <label for="botijao"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="Descricao">Assento</td>
+                            <td> <div class="switch__container">
+                                <input id="assento" name="assento" class="switch switch--shadow" type="checkbox" value="1" />
+                                <label for="assento"></label>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr class="cinza">
+                            <td class="Descricao">Equipamento Limpo</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="limpo" name="limpo" class="switch switch--shadow" type="checkbox" value="1" />
+                                    <label for="limpo"></label>
+                                </div>
+                            </td>
+                        
+                        </tr>
+                        <tr>
+                            <td class="Descricao">Correntes (Torre)</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="correntes" name="correntes" class="switch switch--shadow" type="checkbox"  value="1"/>
+                                    <label for="correntes"></label>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        <tr class="cinza">
+                            <td class="Descricao">Pintura</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="pintura" name="pintura" class="switch switch--shadow" type="checkbox" value="1" />
+                                    <label for="pintura"></label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="Descricao">Mangueiras (Torre)</td>
+                            <td>
+                                <div class="switch__container">
+                                    <input id="mangueiras" name="mangueiras" class="switch switch--shadow" type="checkbox" value="1" />
+                                    <label for="mangueiras"></label>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div>
+                    <br />
+                    <label for="obs">Observações</label>
+                    <input type="text" id="obs" name="obs" style="width: 250px; height: 45px;">
+                    <br />
+                </div>
+
+                <button type="submit" class="btn btn-warning">Enviar</button>
+            </form>
+            <br>
+        </div>
+
+    </div>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font: 15px Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+        font-weight: bold;
+    }
+    .table {
+        padding-top: 15px;
+        
+        
+    }
+    .table td {
+        height: 35px;
+        border-bottom: black solid  2px;
+    }
+    .Descricao {
+        width: 83%;
+       
+    }
+
+    .cabecalho {
+        height: 50px;
+        background-color: rgb(228, 228, 228);
+        border-top: 5px solid red;
+
+    }
+
+    .container {
+        width: 312px;
+        margin: 25px auto;
+        align-items: center;
+    }
+
+    .img {
+        display: block;
+        margin: 0 auto;
+        width: 150px;
+        margin-bottom: 10px;
+    }
+
+    .box {
+        width: 300px;
+        height: 240px;
+        background: rgba(255, 255, 255, 0.2);
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        margin-left: 5px;
+
+    }
+
+    .box img {
+        width: 50px;
+        margin-bottom: -40px;
+        margin-top: -90px;
+        margin-left: 120px;
+    }
+
+    .box div {
+        padding-top: 15px;
+        margin: 0 auto;
+    }
+
+    .box label {
+        display: block;
+        padding-left: 40px;
+        height: 18px;
+        cursor: pointer;
+
+    }
+
+    .box input {
+        width: 220px;
+        height: 23px;
+        margin: 0 auto;
+        display: block;
+        border-radius: 7px;
+        outline: 0;
+        box-shadow: 0 0 0 0;
+
+    }
+
+    .box button {
+        margin: 17px auto;
+        display: block;
+        width: 220px;
+        height: 30px;
+        border-radius: 7px;
+        border: 2px solid rgb(0, 0, 0);
+        background: rgba(212, 40, 40, 0.959);
+        font: 15px Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+        font-weight: bold;
+        outline: 0;
+        box-shadow: 0 0 0 0;
+    }
+
+    #Sel_empilhadeira {
+        margin: 0 auto;
+        display: block;
+        width: 220px;
+        height: 30px;
+        border-radius: 7px;
+        border: 2px solid rgb(0, 0, 0);
+        outline: 0;
+    }
+
+    /* Estilo Tela coletor*/
+
+    .boxC {
+        width: 300px;
+        background: rgb(224, 224, 224);
+        margin-top: -10px;
+        padding-top: 15px;
+        border-radius: 10px;
+    }
+
+    .boxC p {
+        font: 12px Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+        width: 300px;
+
+    }
+
+    .button {
+        margin-bottom: 15px;
+        display: block;
+        width: 80%;
+        height: 30px;
+        border-radius: 7px;
+        border: 2px solid rgb(0, 0, 0);
+        background: rgba(212, 40, 40, 0.959);
+        font: 15px Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+        font-weight: bold;
+        outline: 0;
+        box-shadow: 0 0 0 0;
+    }
+
+    .centro {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+ 
+       
+        
+</style>
+
+</html>
