@@ -2,6 +2,7 @@ const express = require('express');
 const Operadores = require('../models/operadores')
 const Empilhadeiras = require('../models/empilhadeira')
 const Coletor = require('../models/coletor')
+const Filter = require('../controller/filter')
 
 const router = express.Router();
 
@@ -19,28 +20,36 @@ router.get('/Dashboard/acesso', (req, res) => {
         res.render('acesso')
 });
 
-router.get('/Dashboard/monitoramento', (req, res) => {
-    Coletor.findAll().then(function (coletor) {
+router.get('/Dashboard/monitoramento', async (req, res) => {
+    Coletor.findAll({include:[
+        {association: 'empilhadeiras', required: true }, 
+        {association: 'operadores', required: true }
+    ]}
+     ).then(function (coletor) {
         res.render('monitoramento', {
             coletor: coletor
         })
     })
 });
 
-router.get('/Dashboard/operadores', (req, res) => {
-    Operadores.findAll().then(function (operadores) {
+router.get('/Dashboard/operadores', async (req, res) => {
+    await Operadores.findAll().then(function (operadores) {
         res.render('operadores', {
             operador: operadores
         })
     })
 });
 
-router.get('/Dashboard/empilhadeiras', (req, res) => {
-    Empilhadeiras.findAll().then(function (empilhadeiras) {
+router.get('/Dashboard/empilhadeiras', async (req, res) => {
+    await Empilhadeiras.findAll().then(function (empilhadeiras) {
         res.render('empilhadeiras', {
             empilhadeiras: empilhadeiras
         })
     })
 });
+
+router.get('/Dashboard/monitoramento/:idoperadores/operador', Filter.filterOperador);
+
+router.get('/Dashboard/monitoramento/:idempilhadeiras/empilhadeira', Filter.filterEmpilhadeira);
 
 module.exports = router;

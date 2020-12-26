@@ -1,16 +1,14 @@
-const db = require('./db')
+const { Model, DataTypes } = require('sequelize');
 
-const Empilhadeiras = db.sequelize.define('empilhadeiras', {
-    id: {
-        type: db.Sequelize.INTEGER,
-        primaryKey: true
-    },
-    numero: {
-        type: db.Sequelize.INTEGER
-    },
-    modelo: {
-        type: db.Sequelize.STRING,
-    },
+class Empilhadeiras extends Model {
+  static init(sequelize) {
+    super.init({
+        numero: DataTypes.INTEGER,
+        modelo: DataTypes.STRING,
+    }, {
+      sequelize
+    })
+  }
+}
 
-})
 module.exports = Empilhadeiras

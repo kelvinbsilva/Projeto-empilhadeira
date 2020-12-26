@@ -1,74 +1,47 @@
-const db = require('./db')
+const {
+    Model,
+    DataTypes
+} = require('sequelize');
 
-const Coletor = db.sequelize.define('coletors', {
+class Coletor extends Model {
+    static init(sequelize) {
+        super.init({
+            hora_f: DataTypes.INTEGER,
+            hora_i: DataTypes.INTEGER,
+            obs: DataTypes.STRING,
+            assento: DataTypes.INTEGER,
+            coletor: DataTypes.INTEGER,
+            embreagem: DataTypes.INTEGER,
+            extintor: DataTypes.INTEGER,
+            freios: DataTypes.INTEGER,
+            garfo: DataTypes.INTEGER,
+            limpo: DataTypes.INTEGER,
+            mangueiras: DataTypes.INTEGER,
+            pintura: DataTypes.INTEGER,
+            sistema_ilum: DataTypes.INTEGER,
+            torre: DataTypes.INTEGER,
+            agua_radiador: DataTypes.INTEGER,
+            botijao: DataTypes.INTEGER,
+            nivel_oleo: DataTypes.INTEGER,
+            oleo_motor: DataTypes.INTEGER,
+            correntes: DataTypes.INTEGER,
+            pneus: DataTypes.INTEGER,
+            
+        }, {
+            sequelize
+        })
+    }
 
-    id: {
-        type: db.Sequelize.INTEGER,
-        primaryKey: true
-    },
-    
-    hora_f: {
-        type: db.Sequelize.INTEGER,
-    },
-    hora_i: {
-        type: db.Sequelize.INTEGER,
-    },
-    obs: {
-        type: db.Sequelize.STRING,
-    },
+    static associate(models) {
+        this.belongsTo(models.Operadores, {
+            foreignKey: 'idoperadores',
+            as: 'operadores'
+        });
+        this.belongsTo(models.Empilhadeiras, {
+            foreignKey: 'idempilhadeiras',
+            as: 'empilhadeiras'
+        });
+    }
+}
 
-    assento: {
-        type: db.Sequelize.INTEGER,
-    },
-    coletor: {
-        type: db.Sequelize.INTEGER,
-    },
-    embreagem: {
-        type: db.Sequelize.INTEGER,
-    },
-    extintor: {
-        type: db.Sequelize.INTEGER,
-    },
-    freios: {
-        type: db.Sequelize.INTEGER,
-    },
-    garfo: {
-        type: db.Sequelize.INTEGER,
-    },
-    limpo: {
-        type: db.Sequelize.INTEGER,
-    },
-    mangueiras: {
-        type: db.Sequelize.INTEGER,
-    },
-    pintura: {
-        type: db.Sequelize.INTEGER,
-    },
-    sistema_ilum: {
-        type: db.Sequelize.INTEGER,
-    },
-    torre: {
-        type: db.Sequelize.INTEGER,
-    },
-    agua_radiador: {
-        type: db.Sequelize.INTEGER,
-    },
-    botijao: {
-        type: db.Sequelize.STRING,
-    },
-    nivel_oleo: {
-        type: db.Sequelize.INTEGER,
-    },
-    oleo_motor: {
-        type: db.Sequelize.INTEGER,
-    },
-    correntes: {
-        type: db.Sequelize.INTEGER,
-    },
-    pneus: {
-        type: db.Sequelize.INTEGER,
-    },
-    
-
-})
-module.exports = Coletor
+module.exports = Coletor;

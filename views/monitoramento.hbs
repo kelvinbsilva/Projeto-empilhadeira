@@ -22,7 +22,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand" href="#"> <img src="./images/logo.png" style="width: 180px;" alt=""> </a>
+    <a class="navbar-brand" href="#"> <h3 class="text-danger">SMP BR APP</h3> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
       <div class="sidebar">
         <ul class="navbar-nav">
 
-          <li class="nav-item" style="padding-top: 17px;">
+          <li class="nav-item" style="padding-top: 11px;">
             <a href="/Dashboard" class="nav-link px-2">
               <i class="material-icons icon">
                 dashboard
@@ -91,9 +91,10 @@
 
                 <div class="card text-white bg-secondary border-dark mt-3">
                   <div class="card-header border-dakr">
-                    Operador: / Empilhadeira:
+                  <img src="https://image.flaticon.com/icons/png/512/88/88591.png" style="width: 30px;"> Operador: {{operadores.nome}}
                   </div>
                   <div class="card-body">
+                    <p class="card-text"> Empilhadeira: {{empilhadeiras.numero}} | {{empilhadeiras.modelo}}</p>
                     <p class="card-text">Checkout realizado as :</p>
                     <p class="card-text">
                     Assento: {{assento}} /
@@ -130,7 +131,144 @@
     </main>
   </div>
   </div>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Poppins:400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Courgette");
+.bg-mattBlackLight {
+  background-color: #303337;
+}
 
+.text-mattBlackLight {
+  color: #303337;
+}
+.lista li a,
+.lista li{
+  text-decoration: none;
+  color: #878d8d;
+  list-style-type: none;
+  padding-top: 10px;
+
+}
+
+.bg-mattBlackDark, body, .nav-link:hover, .nav-link.active {
+  background-color: #212121;
+}
+
+.text-mattBlackDark {
+  color: #212121;
+}
+
+.bg-mattGray {
+  background-color: #878d8d;
+}
+
+.text-mattGray, body, .nav-link .icon, .nav-link .text {
+  color: #878d8d;
+}
+
+.bg-mattRed {
+  background-color: #ec6271;
+}
+
+.text-mattRed, .nav-link:hover .icon,
+.nav-link:hover .text, .nav-link.active .icon,
+.nav-link.active .text {
+  color: #ec6271;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 1000px;
+}
+
+.wrapper {
+  margin-top: 3.5rem;
+}
+
+.wrapper .sideMenu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: 3.5rem auto auto;
+  left: 0;
+  width: 12.5rem;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  z-index: 2000;
+}
+
+.wrapper .content {
+  width: 100%;
+  margin-left: 0rem;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+}
+
+.wrapper.active .sideMenu {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.nav-link {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: block;
+  white-space: nowrap;
+}
+
+.nav-link .icon {
+  margin-right: 0.25rem;
+  font-size: 1.875rem;
+  vertical-align: middle;
+  height: 2rem;
+  width: 2rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-link .text {
+  font-size: 0.875rem;
+}
+
+@media (min-width: 992px) {
+  .wrapper .sideMenu {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .wrapper .content {
+    margin-left: 12.5rem;
+  }
+  .wrapper.active .sideMenu {
+    width: 5rem;
+  }
+  .wrapper.active .sideMenu .nav-link {
+    text-align: center;
+  }
+  .wrapper.active .sideMenu .nav-link .icon {
+    margin-right: 0;
+  }
+  .wrapper.active .sideMenu .nav-link .text {
+    display: none;
+  }
+  .wrapper.active .content {
+    margin-left: 5rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */
+  </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"
